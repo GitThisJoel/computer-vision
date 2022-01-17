@@ -1,2 +1,2 @@
 # computer-vision
-FAMN95 @ LTH
+FMAN95 @ LTH
