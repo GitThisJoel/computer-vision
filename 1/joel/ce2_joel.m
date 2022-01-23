@@ -1,5 +1,5 @@
 addpath("assignment1data/");
-
+load("compEx2.mat")
 im = imread("assignment1data/compEx2.jpg");
 
 figure()
