@@ -21,7 +21,7 @@ inters = null([lines(:,2) lines(:,3)]');
 h_inters = inters ./ inters(end);
 plot_points(h_inters, 'm*')
 
-d = distance (lines(:,1), h_inters(1:2))
+d = distance(lines(:,1), h_inters(1:2))
 
 hold off
 

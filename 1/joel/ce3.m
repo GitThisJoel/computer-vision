@@ -3,11 +3,11 @@ close all;
 
 addpath("assignment1data/");
 load("compEx3.mat");
-
-H_1 = [3 -1 1;  1 sqrt(3) 1;  0   0 2];
-H_2 = [1 -1 1;  1 1       0;  0   0 1];
-H_3 = [1  1 0;  0 2       0;  0   0 1];
-H_4 = [3 -1 1;  1 sqrt(3) 1; .25 .5 2];
+    
+H_1 = [sqrt(3) -1 1;  1 sqrt(3) 1;  0   0 2];
+H_2 = [1       -1 1;  1 1       0;  0   0 1];
+H_3 = [1        1 0;  0 2       0;  0   0 1];
+H_4 = [sqrt(3) -1 1;  1 sqrt(3) 1; .25 .5 2];
 
 Hs = [H_1 H_2 H_3 H_4];
 
@@ -23,8 +23,8 @@ function plot_projection(H)
     load compEx3.mat startpoints endpoints;
     
     hold on
-    %plot([startpoints(1, :); endpoints(1, :)] , ...
-    %     [startpoints(2, :); endpoints(2, :)], 'r-', 'Color',[1, 0, 0, 0.3]);
+    plot([startpoints(1, :); endpoints(1, :)] , ...
+         [startpoints(2, :); endpoints(2, :)], 'r-', 'Color',[1, 0, 0, 0.3]);
    
 %     for i=1:length(p)
 %         p(i).Color = [p(i).Color 1];  % alpha=0.1
