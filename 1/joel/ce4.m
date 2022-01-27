@@ -33,16 +33,17 @@ if plot_2d
     
     figure(2)
     subplot(2,1,1);
-    hold on
     imagesc(im1);
     colormap(gray)
+    hold on
     plot(U1(1,:), U1(2,:), '.', 'Markersize', 2);
     title("first image")
     
     subplot(2,1,2);
-    hold on
+%     figure(3)
     imagesc(im2);
     colormap(gray)
+    hold on  
     plot(U2(1,:), U2(2,:), '.', 'Markersize', 2);
     title("second image")
 end 
@@ -52,5 +53,5 @@ function C = camera_center(P)
 end 
 
 function V = viewing_dir(R)
-    V = R(end, :);
+    V = R(end, :) ./ norm(R(end, :), 2);
 end 
