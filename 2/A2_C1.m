@@ -41,11 +41,11 @@ plotcams(P2);
 imageplot(1,imfiles,X1,P1,x)
 
 imageplot(1,imfiles,X2,P2,x)
-close all
+
 %%computer exercise 2
 
-[r1 q1] = rq(P1{1})
-[r2 q2] = rq(P2{1})
+[r1 q1] = rq(P1{1});
+[r2 q2] = rq(P2{1});
 
 % i = the number of image
 %files = the file with the images

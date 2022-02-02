@@ -25,5 +25,5 @@ hold on
 plot([x1(1,perm(1:10));x2(1,perm(1:10))+size(im1,2)],...
     [x1(2,perm(1:10));x2(2,perm(1:10))],'-');
 
-
+save('C4_variables','x1','x2')
 
