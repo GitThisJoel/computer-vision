@@ -5,15 +5,10 @@ load("compEx3data.mat")
 im1 = imread("cube1.jpg");
 im2 = imread("cube2.jpg");
 
-%calculate mean and standard deviation of the points in each picture
-mean1 = mean(x{1}(1:2,:),2);
-std1  = std(x{1}(1:2,:),0,2);
-mean2 = mean(x{2}(1:2,:),2);
-std2  = std(x{2}(1:2,:),0,2);
 
 %creating the transformation N
-N1 = normMatrix(mean1,std1);
-N2 = normMatrix(mean2,std2);
+N1 = normMatrix(x{1});
+N2 = normMatrix(x{2});
 
 %normalizing the measured points
 x1norm = N1*x{1};
@@ -88,9 +83,10 @@ hold on
 plot(projectx(1,:),projectx(2,:),'r*');
 plot(x{i}(1,:),x{i}(2,:),'co');
 end
-
-function f = normMatrix(mean,std)
-f = [1/std(1) 0 -mean(1)/std(1);
-    0 1/std(2) -mean(2)/std(2);
+function f = normMatrix(x)
+m = mean(x(1:2,:),2);
+s  = std(x(1:2,:),0,2);
+f = [1/s(1) 0 -m(1)/s(1);
+    0 1/s(2) -m(2)/s(2);
     0  0 1];
 end

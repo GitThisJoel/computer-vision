@@ -1,7 +1,7 @@
 clear all
 close all
 
-addpath("assignment2data\")
+addpath assignment2data
 load("compEx1data.mat")
 
 im = imread(imfiles{1});
