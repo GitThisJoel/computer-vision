@@ -16,7 +16,7 @@ x2 = N2*x{2};
 M = zeros(size(x1,2),9);
 for i=1:size(x1,2)
  xx = x2(:,i)*x1(:,i)'; %finding all the multiplications between two columns
- M(i,:) = xx(:); %replacing the correct row in M
+ M(i,:) = xx(:)'; %replacing the correct row in M
 end
 [U,S,V] = svd(M); %solving the system
 v = V(:,end); %extracting the solution 
@@ -47,6 +47,8 @@ d = abs(sum(l.*x{2})); %calculating the distance between line and points
 figure()
 hist(d,100)
 mean(d)
+
+save('A3_C1_variables.mat','F','N2','N1','F_tilde');
 
 function f = normMatrix(x)
 m = mean(x(1:2,:),2);
