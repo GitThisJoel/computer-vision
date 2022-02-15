@@ -29,7 +29,15 @@ X=[X v(1:4,1)];
 end
 P2 = inv(N2)*P2;
 P1 = inv(N1)*P1;
+
+temp = X(3,:);
+X(3,:) = X(4,:);
+X(4,:) = temp;
 X = pflat(X);
+
+
+
+
 xproj2 =pflat(P2*X);
 xproj1 = pflat(P1*X);
 
@@ -44,6 +52,7 @@ imagesc(im1);
 hold on
 plot(xproj1(1,:),xproj1(2,:),'r*');
 plot(x{1}(1,:),x{1}(2,:),'bo');
+
 
 figure()
 plot3(X(1,:),X(2,:),X(3,:),'.','Markersize',2)

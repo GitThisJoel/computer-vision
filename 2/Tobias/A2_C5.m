@@ -1,5 +1,6 @@
 clear
 close all
+addpath 'assignment2data'
 load('C3_variables.mat'); %loading of cameras from C3
 load('C4_variables.mat'); %loading of SIFT-points
 im1 = imread("cube1.jpg");
@@ -23,6 +24,7 @@ v = V(:,end);
 X=[X v(1:4,1)];
 end
 X = pflat(X);
+
 P1 = r1*P1; %"restoring" the cameras
 P2 = r2*P2;
 xproj1 = pflat(P1*X); %projecting the calculated points into the images
@@ -43,6 +45,7 @@ X = X(:,good_points);
 
 figure()
 %plot of of the cube model with lines
+axis equal
 plot3([Xmodel(1,startind);Xmodel(1,endind)],...
     [Xmodel(2,startind);Xmodel(2,endind)],...
     [Xmodel(3,startind);Xmodel(3,endind)],'b-');
@@ -55,6 +58,7 @@ plotcams({P1,P2})
 
 function comparePlot(xproj, x,im)
 figure()
+axis equal
 imagesc(im)
 hold on
 plot(xproj(1,:),xproj(2,:),'r*')

@@ -70,6 +70,7 @@ r2 = r2./r2(3,3);
 cameraplot(P1,im1,Xmodel,x,1); %ploting points projected by camera 1 into picture 1
 cameraplot(P2,im2,Xmodel,x,2); %ploting points projected by camera 2 into picture 2
 figure()
+axis equal
 plot3(Xmodel(1,:),Xmodel(2,:),Xmodel(3,:),'b.');
 hold on
 plotcams({P1,P2});
@@ -78,6 +79,7 @@ save('C3_variables','P1','P2','startind','endind','Xmodel','r1','r2');
 function cameraplot(P,im,Xmodel,x,i)
 projectx = pflat(P*Xmodel);
 figure()
+axis equal
 imagesc(im)
 hold on
 plot(projectx(1,:),projectx(2,:),'r*');
