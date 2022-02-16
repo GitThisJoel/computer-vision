@@ -30,11 +30,19 @@ end
 P2 = inv(N2)*P2;
 P1 = inv(N1)*P1;
 
+
+d = depth(P1,X);
+
+if(sign(max(d))~=sign(min(d)))
+%adjusting the solution to become QA
 temp = X(3,:);
 X(3,:) = X(4,:);
 X(4,:) = temp;
 X = pflat(X);
 
+P1=QuasiCamera(P1);
+P2 = QuasiCamera(P2);
+end
 
 
 
@@ -56,9 +64,14 @@ plot(x{1}(1,:),x{1}(2,:),'bo');
 
 figure()
 plot3(X(1,:),X(2,:),X(3,:),'.','Markersize',2)
-% looks weird!
+axis equal
 
-%quasi affine?
+function f=QuasiCamera(P) 
+temp=P(:,3);
+P(:,3) = P(:,4);
+P(:,4) = temp;
+f = P;
+end
 
 
 

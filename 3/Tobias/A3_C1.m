@@ -1,5 +1,6 @@
 clear
 close all
+clc
 addpath assignment3data
 load('compEx1data.mat')
 im2 =imread("kronan2.jpg");
@@ -33,20 +34,22 @@ F=F./F(3,3);
 l = pflat(F*x{1}); %computing the epipolar lines
 l = l./sqrt(repmat(l(1,:).^2 +l(2,:).^2,[3 1]));
 
-rand = randperm(size(x{2},2),20); %choosing 20 random numbers
-x{2} = x{2}(:,rand); %selecting the corresponding points
-l = l(:,rand); % selecting the corresponding lines
-figure()
-set(2,'DefaultLineLineWidth',1)
-imagesc(im2)
-hold on
-plot(x{2}(1,:),x{2}(2,:),'c*');
-rital(l)
 
 d = abs(sum(l.*x{2})); %calculating the distance between line and points
 figure()
 hist(d,100)
 mean(d)
+
+rand = randperm(size(x{2},2),20); %choosing 20 random numbers
+x{2} = x{2}(:,rand); %selecting the corresponding points
+l = l(:,rand); % selecting the corresponding lines
+figure()
+set(3,'DefaultLineLineWidth',1)
+imagesc(im2)
+hold on
+plot(x{2}(1,:),x{2}(2,:),'c*');
+rital(l)
+
 
 save('A3_C1_variables.mat','F','N2','N1','F_tilde');
 
