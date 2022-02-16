@@ -4,8 +4,8 @@ Assignment progress:
 
 | Assignment | Status      |
 | :--------- | :---------- |
-| 1          | Preparing for first handing |
-| 2          | Not started |
-| 3          | Not started |
+| 1          | Both completed |
+| 2          | Handed in |
+| 3          | Preparing for first handing |
 | 4          | Not started |
 
