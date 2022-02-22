@@ -1,3 +1,4 @@
+clc
 clear
 close all
 addpath assignment3data
@@ -36,7 +37,7 @@ d = depth(P1,X);
 if(sign(max(d))~=sign(min(d)))
 %adjusting the solution to become QA
 temp = X(3,:);
-X(3,:) = X(4,:);
+X(3,:) = X(4,:);    
 X(4,:) = temp;
 X = pflat(X);
 

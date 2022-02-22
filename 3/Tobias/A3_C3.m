@@ -18,10 +18,10 @@ for i=1:size(x1norm,2)
 end
 [U,S,V] = svd(M);
 v = V(:,end);
-norm(M*v)
-S(size(S,2),end)
+norm(M*v);
+S(size(S,2),end);
 
-
+%Eapprox = [v(1:3)';v(4:6)';v(7:9)'];
 Eapprox = reshape(v,[3 3]);
 [U1,S1,V1] = svd(Eapprox);
 if det(U1*V1')>0
@@ -38,10 +38,13 @@ E = E./E(3,3);
 figure()
 plot(diag(x2norm'*E*x1norm));   
 
+
 F = inv(K)'*E*inv(K);
 F = F./F(3,3);
-l = pflat(F*x{1});
+l = F*x{1};
 l = l./sqrt(repmat(l(1,:).^2 +l(2,:).^2,[3 1]));
+
+
 
 
 d = abs(sum(l.*x{2})); %calculating the distance between line and points

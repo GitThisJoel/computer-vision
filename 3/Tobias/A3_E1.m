@@ -1,3 +1,5 @@
+clc
+
 P1 = [eye(3) zeros(3,1)];
 P2 = [1 1 0 0 ;0 2 0 2; 0 0 1 0]; 
 t_x = [0 0 2; 0 0 0; -2 0 0];
@@ -11,6 +13,6 @@ x1 = [2 0 1]';
 x2 = [2 1 1]';
 x3 = [4 2 1]';
 
-ep_line'*x1;
-ep_line'*x2;
-ep_line'*x3;
+ep_line'*x1
+ep_line'*x2
+ep_line'*x3
