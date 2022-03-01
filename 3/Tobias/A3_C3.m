@@ -1,4 +1,4 @@
-clear
+    clear
 close all
 clc
 addpath assignment3data

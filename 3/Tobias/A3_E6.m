@@ -34,7 +34,7 @@ d42 = depth(P24,X14);
 D = [d1 d12 d2 d22 d3 d32 d4 d42];
 index = 0;
 
-for i = 1:2:7
+for i = 1:2:size(D,2)-1
     if(sign(D(i))>0 & sign(D(i+1))>0)
     index = i;
     end
