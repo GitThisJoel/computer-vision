@@ -1,4 +1,4 @@
-function [Pnew,Unew] = update_solution(d,P,U)
+function [Pnew,Unew] = ComputeStr(d,P,U)
 Ba = [0 1 0; -1 0 0; 0 0 0];
 Bb = [0 0 1; 0 0 0; -1 0 0];
 Bc = [0 0 0; 0 0 1; 0 -1 0];
@@ -18,3 +18,6 @@ for i=1:length(P);
     t = t0 + dcamvar(4:6,i);
     Pnew{i} = [R t];
 end
+
+function Y = pextend(X)
+Y = [X; ones(1,size(X,2))];
