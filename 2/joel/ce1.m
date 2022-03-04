@@ -17,29 +17,29 @@ end
 figure()
 plot_image_proj(1, P, X, x)
 
-X1_t = pflat(T1\X);
-X2_t = pflat(T2\X);
+X1_t = pflat(T1*X); % not T1\X
+X2_t = pflat(T2*X); % not T2\X
 
 P1 = P;
 P2 = P;
 
 % new camera matrices
 for i=1:9 
-    P1{i} = P{i} * T1;
-    P2{i} = P{i} * T2;
+    P1{i} = P{i} * T1^-1;
+    P2{i} = P{i} * T2^-1;
 end 
 
 figure();
 % subplot(1, 2, 1);
 hold on
-axis equal
 plot3(X1_t(1,:), X1_t(2,:), X1_t(3,:), 'b.', 'Markersize' , 2);
+axis equal
 plotcams(P1)
 
 figure();
 %subplot(1, 2, 2);
-hold on
 plot3(X2_t(1,:), X2_t(2,:), X2_t(3,:), 'b.', 'Markersize' , 2);
+hold on
 axis equal
 plotcams(P2)
 
