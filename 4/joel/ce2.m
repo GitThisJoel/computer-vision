@@ -9,8 +9,11 @@ vl_setup;
 im1 = imread('im1.jpg');
 im2 = imread('im2.jpg');
 
-x1 = [x{1}; ones(1, size(x{1},2))];
-x2 = [x{2}; ones(1, size(x{2},2))];
+x{1} = [x{1}; ones(1, size(x{1},2))];
+x{2} = [x{2}; ones(1, size(x{2},2))];
+
+x1 = x{1};
+x2 = x{2};
 
 x1_norm = K^-1 * x1;
 x2_norm = K^-1 * x2;
@@ -77,6 +80,10 @@ plot3(X_best(1,:), X_best(2,:), X_best(3,:), '.', 'Markersize', 2.5)
 axis equal
 hold on
 plotcams({P1, P2_best})
+
+P2 = P2_best;
+X = X_best;
+save('ce2_variables', 'P1', 'P2', 'X', 'x');
 
 function dis = distance(line, points)
     a = line(1); b = line(2); c = line(3);
