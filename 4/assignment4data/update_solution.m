@@ -21,3 +21,6 @@ for i=1:length(P);
     t = t0 + dcamvar(4:6,i);
     Pnew{i} = [KR t];
 end
+
+function Y = pextend(X)
+Y = [X; ones(1,size(X,2))];
